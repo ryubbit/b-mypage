@@ -40,7 +40,7 @@ public class MyPageViewHandler {
         try {
             if (userUpdated.isMe()) {
                 // view 객체 조회
-                Optional<MyPage> myPageOptional = myPageRepository.findByUserId(userUpdated.getId());
+                Optional<MyPage> myPageOptional = myPageRepository.findById(userUpdated.getId());
                 if( myPageOptional.isPresent()) {
                     MyPage myPage = myPageOptional.get();
                     // view 객체에 이벤트의 eventDirectValue 를 set 함
@@ -58,7 +58,7 @@ public class MyPageViewHandler {
         try {
             if (voucherBought.isMe()) {
                 // view 객체 조회
-                Optional<MyPage> myPageOptional = myPageRepository.findByUserId(voucherBought.getUserId());
+                Optional<MyPage> myPageOptional = myPageRepository.findById(voucherBought.getUserId());
                 if( myPageOptional.isPresent()) {
                     MyPage myPage = myPageOptional.get();
                     // view 객체에 이벤트의 eventDirectValue 를 set 함
@@ -77,7 +77,7 @@ public class MyPageViewHandler {
         try {
             if (voucherMinus.isMe()) {
                 // view 객체 조회
-                Optional<MyPage> myPageOptional = myPageRepository.findByUserId(voucherMinus.getUserId());
+                Optional<MyPage> myPageOptional = myPageRepository.findById(voucherMinus.getUserId());
                 if( myPageOptional.isPresent()) {
                     MyPage myPage = myPageOptional.get();
                     // view 객체에 이벤트의 eventDirectValue 를 set 함
@@ -95,7 +95,7 @@ public class MyPageViewHandler {
         try {
             if (voucherUpdated.isMe()) {
                 // view 객체 조회
-                Optional<MyPage> myPageOptional = myPageRepository.findByUserId(voucherUpdated.getUserId());
+                Optional<MyPage> myPageOptional = myPageRepository.findById(voucherUpdated.getUserId());
                 if( myPageOptional.isPresent()) {
                     MyPage myPage = myPageOptional.get();
                     // view 객체에 이벤트의 eventDirectValue 를 set 함
@@ -113,11 +113,10 @@ public class MyPageViewHandler {
         try {
             if (rented.isMe()) {
                 // view 객체 조회
-                Optional<MyPage> myPageOptional = myPageRepository.findByUserId(rented.getUserId());
+                Optional<MyPage> myPageOptional = myPageRepository.findById(rented.getUserId());
                 if( myPageOptional.isPresent()) {
                     MyPage myPage = myPageOptional.get();
                     // view 객체에 이벤트의 eventDirectValue 를 set 함
-                    myPage.setRentalId(rented.getId());
                     myPage.setBikeId(rented.getBikeId());
                     // view 레파지 토리에 save
                     myPageRepository.save(myPage);
@@ -132,11 +131,10 @@ public class MyPageViewHandler {
         try {
             if (rentalCancelled.isMe()) {
                 // view 객체 조회
-                Optional<MyPage> myPageOptional = myPageRepository.findByUserId(rentalCancelled.getUserId());
+                Optional<MyPage> myPageOptional = myPageRepository.findById(rentalCancelled.getUserId());
                 if( myPageOptional.isPresent()) {
                     MyPage myPage = myPageOptional.get();
                     // view 객체에 이벤트의 eventDirectValue 를 set 함
-                    myPage.setRentalId(rentalCancelled.getId());
                     myPage.setBikeId(rentalCancelled.getBikeId());
                     // view 레파지 토리에 save
                     myPageRepository.save(myPage);
