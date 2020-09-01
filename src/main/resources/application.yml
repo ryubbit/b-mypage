@@ -45,7 +45,7 @@ spring:
     stream:
       kafka:
         binder:
-          brokers: my-kafka.kafka.svc.cluster.local:9092
+          brokers: 052937454741.dkr.ecr.us-east-2.amazonaws.com:9092
         streams:
           binder:
             configuration:
